@@ -1,0 +1,145 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<!-- Project Model Version -->
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Project Identification -->
+	<groupId>org.saroz</groupId>
+	<artifactId>vtigercrm</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<!-- Global Properties -->
+	<properties>
+		<!-- Use stable Java version -->
+		<maven.compiler.source>25</maven.compiler.source>
+		<maven.compiler.target>25</maven.compiler.target>
+
+		<!-- Dependency Versions (centralized for easy updates) -->
+		<selenium.version>4.45.0</selenium.version>
+		<testng.version>7.12.0</testng.version>
+		<restassured.version>6.0.0</restassured.version>
+		<allure.version>2.34.0</allure.version>
+		<extent.version>5.1.2</extent.version>
+		<log4j.version>2.26.0</log4j.version>
+		<poi.version>5.5.1</poi.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- Selenium: UI automation framework -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+
+		<!-- TestNG: Test execution and assertions framework -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testng.version}</version>
+		</dependency>
+
+		<!-- Rest Assured: API testing library -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>${restassured.version}</version>
+		</dependency>
+
+		<!-- JSON: For handling JSON data -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20250517</version>
+		</dependency>
+
+		<!-- Apache POI: Excel file handling -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+
+		<!-- Logging: Log4j for logging framework -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+		<!-- Extent Reports: HTML reporting -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${extent.version}</version>
+		</dependency>
+
+		<!-- Allure: Advanced reporting integration (Scope test removed to fix
+		import errors) -->
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-testng</artifactId>
+			<version>${allure.version}</version>
+		</dependency>
+
+		<!-- WebDriverManager: Automatically manages browser drivers -->
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>6.3.4</version>
+		</dependency>
+
+		<!-- Commons IO: Utility for file handling -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.22.0</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+
+			<!-- Compiler Plugin: Upgraded to 3.14.1 for Java 25 compatibility -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.15.0</version>
+				<configuration>
+					<release>25</release>
+				</configuration>
+			</plugin>
+
+			<!-- Surefire Plugin: Runs TestNG test cases -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				 <version>3.6.0-M1</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>src/test/resources/suite/testng.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+
+			<!-- Allure Maven Plugin: Upgraded for better configuration handling -->
+			<plugin>
+				<groupId>io.qameta.allure</groupId>
+				<artifactId>allure-maven</artifactId>
+				<version>3.0.1</version>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

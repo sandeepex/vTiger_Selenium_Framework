@@ -1,0 +1,72 @@
+[
+  {
+    "leadNo": "LD001",
+    "salutationtype": "Mr.",
+    "firstName": "Rahul",
+    "lastName": "Sharma",
+    "company": "ABC Technologies",
+    "title": "Manager",
+    "leadSource": "Existing Customer",
+    "industry": "Biotechnology",
+    "annualRevenue": 5000000,
+    "numberOfEmployees": 150,
+    "secondaryEmail": "rahul.alt@abc.com",
+    "phone": "01112345678",
+    "mobile": "9876543210",
+    "fax": "01187654321",
+    "email": "rahul@abc.com",
+    "website": "https://www.abctech.com",
+    "leadStatus": "Hot",
+    "rating": "Active",
+    "assignedTo": {
+      "type": "User",
+      "name": "Administrator"
+    },
+    "address": {
+      "street": "Sector 62",
+      "poBox": "PO101",
+      "postalCode": "201309",
+      "city": "Noida",
+      "state": "Uttar Pradesh",
+      "country": "India"
+    }
+  },
+  
+  {
+	"updatedCompany":"Xia.com",
+	"updatedPhone":"784589654"
+     
+  },
+  
+  {
+    "leadNo": "LD002",
+    "firstName": "Amit",
+    "lastName": "Verma",
+    "company": "TechSoft Pvt Ltd",
+    "title": "Director",
+    "leadSource": "Public Relations",
+    "industry": "Chemicals",
+    "annualRevenue": 8000000,
+    "numberOfEmployees": 220,
+    "secondaryEmail": "amit.alt@techsoft.com",
+    "phone": "02245678901",
+    "mobile": "9876543211",
+    "fax": "02245678902",
+    "email": "amit@techsoft.com",
+    "website": "https://www.techsoft.com",
+    "leadStatus": "Contacted",
+    "rating": "Warm",
+    "assignedTo": {
+      "type": "User",
+      "name": "Administrator"
+    },
+    "address": {
+      "street": "Andheri East",
+      "poBox": "PO102",
+      "postalCode": "400069",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "country": "India"
+    }
+  }
+]
