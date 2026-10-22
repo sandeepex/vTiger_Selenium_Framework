@@ -13,19 +13,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-/**
- * <h2>APIClient</h2>
- * A unified, enterprise-grade engine that manages the entire HTTP lifecycle: 
- * from fluent request construction to real-time response validation.
- * * <p><b>Key Architecture Design:</b></p>
- * <ul>
- * <li><b>Thread Safety:</b> ThreadLocal isolation for RequestSpecification allows seamless parallel executions.</li>
- * <li><b>Unified State Loop:</b> Automatically caches the most recent response in a local thread-safe state for fluent validation chaining.</li>
- * <li><b>Traceability:</b> Implicitly documents every request attribute and assertion matrix into Log4j and ExtentReports.</li>
- * </ul>
- *
- * @author Sandeep Kumar
- */
+
 public class APIClient {
 
     private final ConfigReader config;
@@ -33,21 +21,20 @@ public class APIClient {
     private final String email;
     private final String apiKey;
 
-    /** Thread-local context to isolate concurrent HTTP request specifications. */
+    // Thread-local context to isolate concurrent HTTP request specifications. */
     private final ThreadLocal<RequestSpecification> requestSpecThread = new ThreadLocal<>();
 
-    /** Thread-local storage for tracking the most recent API response to support execution-to-validation chaining. */
+    // Thread-local storage for tracking the most recent API response to support execution-to-validation chaining. */
     private final ThreadLocal<Response> lastResponseThread = new ThreadLocal<>();
 
-    /** Pre-calculated JsonPath optimizer for the active response thread. */
+    //  Pre-calculated JsonPath optimizer for the active response thread. */
     private final ThreadLocal<JsonPath> jsonPathThread = new ThreadLocal<>();
 
     private final Logger log;
     private final ThreadLocal<ExtentTest> extentTest;
 
-    /**
-     * Instantiates the APIClient engine and syncs configuration keys with the active thread profile.
-     */
+    // Instantiates the APIClient engine and syncs configuration keys with the active thread profile.
+     
     public APIClient(Logger log, ThreadLocal<ExtentTest> extentTest) {
         this.log = log;
         this.extentTest = extentTest;
@@ -61,7 +48,7 @@ public class APIClient {
         initializeRequest();
     }
 
-    /** Sets up a clean RequestSpecification footprint for the thread context. */
+    // Sets up a clean RequestSpecification footprint for the thread context. */
     private void initializeRequest() {
         RequestSpecification spec = RestAssured.given()
                 .baseUri(this.baseURI)

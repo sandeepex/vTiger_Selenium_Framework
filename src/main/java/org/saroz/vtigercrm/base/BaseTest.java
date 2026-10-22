@@ -87,7 +87,6 @@ public class BaseTest {
 			extentTest.get().log(Status.INFO, browser + " launched | Headless = " + isHeadless);
 
 
-
 		} catch (Exception e) {
 			log.error("Browser launch failed", e);
 			extentTest.get().log(Status.FAIL, "Browser launch failed: " + e.getMessage());
@@ -110,14 +109,14 @@ public class BaseTest {
 	public void screenResult(ITestResult result) {
 		try {
 			if (result.getStatus() == ITestResult.FAILURE) {
-				// 1. Capture screenshot path
+				//  Capture screenshot path
 				String screenshotPath = WebUtils.getScreenshot(getDriver(), extentTest.get(), result.getName());
 
-				// 2. EXPLICITLY MARK THE EXTENT REPORT AS FAILED (This was missing!)
+				//  EXPLICITLY MARK THE EXTENT REPORT AS FAILED (This was missing!)
 				String errorMessage = (result.getThrowable() != null) ? result.getThrowable().getMessage() : "Test Failed";
 				extentTest.get().fail("Test Case FAILED: " + errorMessage);
 
-				// 3. Attach the screenshot to the failed log
+				// Attach the screenshot to the failed log
 				extentTest.get().addScreenCaptureFromPath(screenshotPath);
 				log.info("Screenshot attached for failed test: " + result.getName());
 
